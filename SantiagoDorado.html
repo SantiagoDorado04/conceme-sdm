@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago Dorado Melo | Desarrollador de Software</title>
+    <meta name="description" content="Portafolio profesional de Santiago Dorado Melo, Analista y Desarrollador de Software Full Stack.">
+    
+    <!-- Open Graph SEO para compartir en redes y WhatsApp -->
+    <meta property="og:title" content="Santiago Dorado Melo | Desarrollador de Software">
+    <meta property="og:description" content="Analista y Desarrollador de Software Full Stack especializado en Laravel, Angular, NestJS y ecosistemas cloud.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="foto-sdm.jpeg">
+    
+    <!-- Google Fonts: Inter para un look super profesional y limpio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #050505;
+            --bg-surface: #0f0f11;
+            --border-color: #1f1f22;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #3b82f6; /* Azul profesional */
+            --accent-hover: #2563eb;
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scrollbar Premium para Webkit */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 10px;
+            border: 3px solid var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+
+        /* Background grid pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Radial gradient for top */
+        .glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 500px;
+            background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        /* Floating Navbar */
+        .nav-wrapper {
+            position: fixed;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        nav {
+            background: rgba(15, 15, 17, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            pointer-events: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .logo span {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .hero-badge i {
+            font-size: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        
+        .hero-title span {
+            color: var(--text-secondary);
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: #d4d4d8;
+            color: var(--bg-color);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1c;
+            border-color: #3f3f46;
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(110%);
+            transition: var(--transition);
+        }
+        
+        .hero-image-wrapper:hover .hero-image img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.02);
+        }
+
+        .hero-decoration {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        /* Contact bar */
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            color: var(--text-tertiary);
+        }
+
+        .contact-item a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Cards Generic */
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: #3f3f46;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .exp-date {
+            flex-shrink: 0;
+            width: 150px;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding-top: 0.25rem;
+        }
+
+        .exp-content {
+            flex-grow: 1;
+        }
+
+        .exp-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-content h4 {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .exp-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .exp-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .exp-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--text-tertiary);
+        }
+
+        /* Badges / Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .project-year {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h4 {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group h3 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-group h3 i {
+            color: var(--text-tertiary);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skill-item i {
+            color: var(--text-primary);
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .timeline {
+            border-left: 1px solid var(--border-color);
+            padding-left: 2rem;
+            margin-left: 1rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 2px solid var(--text-tertiary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Social/Refs Footer */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .ref-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .ref-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            font-size: 1.25rem;
+        }
+
+        .ref-info h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .ref-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .contact-bar {
+                justify-content: center;
+            }
+            .about-grid, .edu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 1rem;
+                right: 1rem;
+                background: var(--bg-surface);
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius);
+                padding: 1.5rem;
+                flex-direction: column;
+                margin-top: 0.5rem;
+                opacity: 0;
+                transform: translateY(-10px);
+                pointer-events: none;
+                transition: var(--transition);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+                display: flex;
+            }
+            .nav-links.active {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .experience-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .exp-date {
+                width: auto;
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+
+    <!-- Floating Navigation -->
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#" class="logo">Santiago <span>Dorado</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">Perfil</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#education">Formación</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content fade-up">
+                <div class="hero-badge">
+                    <i class="fas fa-circle"></i> Disponible para nuevos retos
+                </div>
+                <h1 class="hero-title">
+                    Ingeniería & <br><span>Desarrollo de Software.</span>
+                </h1>
+                <p class="hero-desc">
+                    Soy Santiago Dorado Melo, Analista y Desarrollador Full Stack. Especializado en crear aplicaciones web escalables y eficientes, transformando ideas complejas en soluciones tecnológicas robustas.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="mailto:santydor04@gmail.com" class="btn btn-secondary">
+                        <i class="far fa-envelope"></i> Contactar
+                    </a>
+                </div>
+
+                <div class="contact-bar">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pasto, Colombia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/SantiagoDorado04" target="_blank" aria-label="Perfil de GitHub">GitHub</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/santiago-dorado-melo-b58b58333" target="_blank" aria-label="Perfil de LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper fade-up" style="transition-delay: 0.2s;">
+                <div class="hero-decoration"></div>
+                <div class="hero-image">
+                    <img src="foto-sdm.jpeg" alt="Santiago Dorado Melo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfil & Resumen -->
+    <section id="about">
+        <div class="container">
+            <h2 class="fade-up">Perfil Profesional</h2>
+            <p class="section-desc fade-up">Un vistazo a mi trayectoria y enfoque como desarrollador de software.</p>
+            
+            <div class="about-grid fade-up" style="transition-delay: 0.1s;">
+                <div class="card about-text">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Resumen Ejecutivo</h3>
+                    <p>Tecnólogo en Análisis y Desarrollo de Software e Ingeniero de Software en formación, con experiencia en <strong>liderazgo técnico</strong>, desarrollo Full Stack y transformación digital de organizaciones.</p>
+                    <p>Especializado en el ecosistema <strong>Laravel, Angular y NestJS</strong>. Tengo la capacidad de diseñar e implementar soluciones tecnológicas de alto impacto, que se alinean perfectamente con los objetivos empresariales y las necesidades reales de los usuarios.</p>
+                </div>
+                
+                <div class="card about-text">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Mi Enfoque</h3>
+                    <p>Actualmente me desempeño como desarrollador y coordinador de proyectos tecnológicos, participando en el <strong>análisis, diseño y ejecución</strong> de soluciones para organizaciones públicas y privadas a nivel nacional.</p>
+                    <p>Combino pensamiento analítico, liderazgo técnico y comunicación efectiva para asegurar la calidad y el éxito de cada proyecto en el que me involucro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="fade-up">Experiencia</h2>
+            <p class="section-desc fade-up">Mi recorrido profesional liderando y construyendo productos tecnológicos.</p>
+            
+            <div class="card experience-card fade-up">
+                <div class="exp-date">
+                    2024 — Actualidad
+                </div>
+                <div class="exp-content">
+                    <h3>Coordinador y Desarrollador de Software</h3>
+                    <h4>ParqueSoft Nariño</h4>
+                    <p>Responsable de la coordinación técnica y desarrollo de múltiples proyectos tecnológicos para organizaciones públicas y privadas de Colombia.</p>
+                    
+                    <ul class="exp-list">
+                        <li>Levantamiento y análisis de requerimientos con stakeholders.</li>
+                        <li>Diseño de arquitectura de software y liderazgo técnico de equipos.</li>
+                        <li>Desarrollo integral Backend/Frontend e integración de APIs.</li>
+                        <li>Administración de bases de datos y despliegue en la nube.</li>
+                    </ul>
+
+                    <div class="tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Livewire</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">NestJS</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="fade-up">Proyectos Destacados</h2>
+            <p class="section-desc fade-up">Plataformas y soluciones que he construido recientemente.</p>
+            
+            <div class="projects-grid">
+                
+                <div class="card project-card fade-up">
+                    <span class="project-year">2026</span>
+                    <h3>Bee Languages Academy</h3>
+                    <h4>Plataforma Académica y Financiera</h4>
+                    <p>Diseño y desarrollo completo de una plataforma web que integra procesos académicos y financieros. Incluye gestión de estudiantes, seguimiento financiero y dashboard administrativo centralizado.</p>
+                    <div class="tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Livewire</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="card project-card fade-up" style="transition-delay: 0.1s;">
+                    <span class="project-year">2026</span>
+                    <h3>TalentUp Labs</h3>
+                    <h4>Universidad Mariana + CONTACTAR</h4>
+                    <p>Plataforma orientada a la evaluación de competencias empresariales. Permite la aplicación de diagnósticos, generación de resultados automatizados y visualización mediante reportes analíticos.</p>
+                    <div class="tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Livewire</span>
+                        <span class="tag">Reportes</span>
+                    </div>
+                </div>
+
+                <div class="card project-card fade-up" style="transition-delay: 0.2s;">
+                    <span class="project-year">2026</span>
+                    <h3>Strategix</h3>
+                    <h4>Universidad Mariana + CONTACTAR</h4>
+                    <p>Software especializado en el diagnóstico del estado empresarial. Proporciona evaluación organizacional, cálculo de indicadores de desempeño y visualización en dashboards estratégicos.</p>
+                    <div class="tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">Livewire</span>
+                        <span class="tag">Dashboards</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="fade-up">Competencias Técnicas</h2>
+            <p class="section-desc fade-up">Tecnologías y herramientas que utilizo en mi día a día.</p>
+            
+            <div class="card skills-grid fade-up">
+                
+                <div class="skill-group">
+                    <h3><i class="fas fa-server"></i> Backend & APIs</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fab fa-laravel"></i> Laravel & Livewire</div>
+                        <div class="skill-item"><i class="fab fa-node-js"></i> NestJS & Node.js</div>
+                        <div class="skill-item"><i class="fab fa-php"></i> PHP & TypeScript</div>
+                        <div class="skill-item"><i class="fas fa-network-wired"></i> Diseño de APIs REST</div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fab fa-angular"></i> Angular</div>
+                        <div class="skill-item"><i class="fab fa-js"></i> TypeScript & JavaScript</div>
+                        <div class="skill-item"><i class="fab fa-html5"></i> HTML5 & CSS3</div>
+                        <div class="skill-item"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3><i class="fas fa-database"></i> Infraestructura & Datos</h3>
+                    <div class="skill-items">
+                        <div class="skill-item"><i class="fas fa-database"></i> MySQL & PostgreSQL</div>
+                        <div class="skill-item"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                        <div class="skill-item"><i class="fas fa-cloud"></i> AWS, Oracle Cloud</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card fade-up" style="margin-top: 2rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 1.5rem; color: var(--text-primary);">Habilidades Blandas</h3>
+                <div class="tags">
+                    <span class="tag" style="padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.1);"><i class="fas fa-users"></i> Liderazgo Técnico</span>
+                    <span class="tag" style="padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.1);"><i class="fas fa-lightbulb"></i> Resolución de Problemas</span>
+                    <span class="tag" style="padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.1);"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</span>
+                    <span class="tag" style="padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.1);"><i class="fas fa-comments"></i> Comunicación Efectiva</span>
+                    <span class="tag" style="padding: 0.5rem 1rem; border-color: rgba(255,255,255,0.1);"><i class="fas fa-rocket"></i> Emprendimiento</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+        <div class="container">
+            <h2 class="fade-up">Formación & Certificaciones</h2>
+            <p class="section-desc fade-up">Mi base académica y aprendizaje continuo.</p>
+            
+            <div class="edu-grid">
+                
+                <div class="fade-up">
+                    <h3 style="margin-bottom: 2rem; color: var(--text-primary); font-size: 1.25rem;">Educación Académica</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2025 — Actualidad</span>
+                            <h4 class="timeline-title">Ingeniería de Software</h4>
+                            <p class="timeline-subtitle">Formación Profesional Universitaria en Uniminuto</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Graduado en 2025</span>
+                            <h4 class="timeline-title">Tecnólogo en Análisis y Desarrollo de Software</h4>
+                            <p class="timeline-subtitle">Servicio Nacional de Aprendizaje (SENA)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Graduado en 2022</span>
+                            <h4 class="timeline-title">Bachiller Académico</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 0.1s;">
+                    <h3 style="margin-bottom: 2rem; color: var(--text-primary); font-size: 1.25rem;">Certificaciones Destacadas</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">Oracle — 2025</span>
+                            <h4 class="timeline-title">Cloud Infrastructure Foundations Associate</h4>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Algorand Foundation — 2024</span>
+                            <h4 class="timeline-title">Developer Bootcamp: Intermediate Python</h4>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">Celider — 2026</span>
+                            <h4 class="timeline-title">Maestría en el Ser</h4>
+                            <p class="timeline-subtitle" style="font-size: 0.85rem;">Liderazgo, comunicación y crecimiento integral.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- References & Human Side -->
+    <section id="references">
+        <div class="container">
+            <h2 class="fade-up">Referencias & Faceta Humana</h2>
+            <p class="section-desc fade-up">Contactos profesionales y un poco más de mi lado personal.</p>
+            
+            <div class="card fade-up mb-4" style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary);">Sobre Mí</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Participo activamente en expresiones artísticas y culturales relacionadas con el Carnaval de Negros y Blancos. Esta experiencia ha fortalecido mis habilidades en trabajo colaborativo, creatividad, disciplina y compromiso.</p>
+                <p style="color: var(--text-secondary);">También disfruto de la música, especialmente la guitarra, como una herramienta de expresión y aprendizaje constante, complementando mi perfil tecnológico con la creatividad artística.</p>
+            </div>
+
+            <div class="footer-grid fade-up">
+                <div class="card ref-card">
+                    <div class="ref-avatar">
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="ref-info">
+                        <h4>Luis Anderson Eraso N.</h4>
+                        <p><i class="fas fa-phone-alt"></i> +57 312 772 5080</p>
+                    </div>
+                </div>
+                <div class="card ref-card">
+                    <div class="ref-avatar">
+                        <i class="far fa-user"></i>
+                    </div>
+                    <div class="ref-info">
+                        <h4>Jorge Arturo Dorado G.</h4>
+                        <p><i class="fas fa-phone-alt"></i> +57 315 240 3519</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container fade-up">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+                Santiago Dorado Melo
+            </div>
+            <p>Pasto, Nariño, Colombia</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">© 2026 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
